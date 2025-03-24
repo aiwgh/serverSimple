@@ -2,6 +2,8 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const fs = require('fs');
 const { get } = require('http');
+const path = require('path');
+const DataBasePatch = path.join(process.cwd(), 'simpleDataBase.json');
 app = express();
 app.use(bodyParser.json());
 
@@ -41,7 +43,7 @@ app.post('/register', (req, res) => {
         return;
     }
     data.users.push({ userName: userName, password: password });
-    fs.writeFileSync('simpleDataBase.json', JSON.stringify(data));
+    fs.writeFileSync(DataBasePatch, JSON.stringify(data));
     res.send('Registration successful');
 }
 );
@@ -89,7 +91,7 @@ function changePassword(userName, password, newPassword) {
         return false;
     }
     user.password = newPassword;
-    fs.writeFileSync('simpleDataBase.json', JSON.stringify(data));
+    fs.writeFileSync(DataBasePatch, JSON.stringify(data));
     return true;
 }
 
@@ -101,7 +103,7 @@ function forgotPassword(userName) {
     }
     var tempPassword = generateRandomPassword();
     user.password = tempPassword;
-    fs.writeFileSync('simpleDataBase.json', JSON.stringify(data));
+    fs.writeFileSync(DataBasePatch, JSON.stringify(data));
     return tempPassword;
 }
 
@@ -113,8 +115,7 @@ function forgotPassword(userName) {
 
 
 function readData() {
-
-    var data = fs.readFileSync('simpleDataBase.json');
+    var data = fs.readFileSync(path);
     return JSON.parse(data);
 }
 
