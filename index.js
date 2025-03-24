@@ -115,7 +115,7 @@ function forgotPassword(userName) {
 
 
 function readData() {
-    var data = fs.readFileSync(path);
+    var data = fs.readFileSync(DataBasePatch);
     return JSON.parse(data);
 }
 
