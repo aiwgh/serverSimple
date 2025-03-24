@@ -1,142 +1,128 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const fs = require('fs');
-const { get } = require('http');
-const path = require('path');
-const { getEdgeConfig, setEdgeConfig } = require('@vercel/edge-config');
-const DataBasePatch = path.join(process.cwd(), 'simpleDataBase.json');
-app = express();
+const { createClient } = require('@vercel/edge-config');
+const app = express();
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.send({ success: true, message: 'Hello World' });
-}
-);
+// Khởi tạo Edge Config client
+const edgeConfig = createClient(process.env.EDGE_CONFIG);
 
-app.post('/login', (req, res) => {
-    var username = req.body.username;
-    var password = req.body.password;
-    var user = readData.users.find(u => u.username === username && u.password === password);
-    if (!user) {
-        res.send({ success: false, message: 'Invalid username or password' });
-        return;
-    }
-    res.send({ success: true, message: 'Login successful' });
-
-}
-);
-
-app.post('/register', (req, res) => {
-    // var username = req.body.username;
-    // var password = req.body.password;
-    // if (username === 'admin') {
-    //     res.send('username already exists');
-    //     return;
-    // }
-
-    // res.send('Registration successful');
-    var data = readData;
-    var username = req.body.username;
-    var password = req.body.password;
-    var user = getUser(username);
-    if (user) {
-        // res code 400  send json message username already exists
-        res.send({ success: false, message: 'username already exists' });
-        return;
-    }
-    data.users.push({ username: username, password: password });
-    fs.writeFileSync(DataBasePatch, JSON.stringify(data));
-    res.send('Registration successful');
-}
-);
-
-app.post('/change-password', (req, res) => {
-    var username = req.body.username;
-    var password = req.body.password;
-    var newPassword = req.body.newPassword;
-    if (!changePassword(username, password, newPassword)) {
-        res.send({ success: false, message: 'Invalid username or password' });
-        return;
-    }
-    res.send({ success: true, message: 'Password changed successfully' });
-}
-);
-
-app.post('/forgot-password', (req, res) => {
-    var username = req.body.username;
-    var user = getUser(username);
-    if (!user) {
-        res.send({ success: false, message: 'Invalid username' });
-        return;
-    }
-    res.send(forgotPassword(username));
-}
-);
-
-
-
-function generateRandomPassword() {
-    var length = 8,
-        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-        password = "";
-    for (var i = 0, n = charset.length; i < length; ++i) {
-        password += charset.charAt(Math.floor(Math.random() * n));
-    }
-    return password;
-}
-
-
-function changePassword(username, password, newPassword) {
-    var data = readData;
-    var user = data.users.find(u => u.username === username && u.password === password);
-    if (!user) {
-        return false;
-    }
-    user.password = newPassword;
-    fs.writeFileSync(DataBasePatch, JSON.stringify(data));
-    return true;
-}
-
-function forgotPassword(username) {
-    var data = readData;
-    var user = data.users.find(u => u.username === username);
-    if (!user) {
-        return null;
-    }
-    var tempPassword = generateRandomPassword();
-    user.password = tempPassword;
-    fs.writeFileSync(DataBasePatch, JSON.stringify(data));
-    return tempPassword;
-}
-
-
-
-
-
-
-
-
+// Hàm đọc dữ liệu
 const readData = async () => {
-    const data = await getEdgeConfig('server-simple-store');
-    return data || [];
+    const users = await edgeConfig.get('users');
+    return users || [];
 };
 
-// Hàm kiểm tra user tồn tại
-const getUser = async (username) => {
-    const users = await readData;
-    return users.users.find(user => user.username === username);
+// Hàm ghi dữ liệu
+const saveData = async (users) => {
+    await edgeConfig.set('users', users);
 };
 
+// Routes
+app.get('/', (req, res) => {
+    res.json({ success: true, message: 'Hello World' });
+});
 
+app.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const users = await readData();
+        const user = users.find(u => u.username === username && u.password === password);
 
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid username or password'
+            });
+        }
 
+        res.json({ success: true, message: 'Login successful' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
 
+app.post('/register', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const users = await readData();
 
+        if (users.some(user => user.username === username)) {
+            return res.status(400).json({
+                success: false,
+                message: 'Username already exists'
+            });
+        }
 
+        users.push({ username, password });
+        await saveData(users);
+        res.json({ success: true, message: 'Registration successful' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
 
+app.post('/change-password', async (req, res) => {
+    try {
+        const { username, password, newPassword } = req.body;
+        const users = await readData();
+        const userIndex = users.findIndex(u =>
+            u.username === username && u.password === password
+        );
 
+        if (userIndex === -1) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid credentials'
+            });
+        }
 
+        users[userIndex].password = newPassword;
+        await saveData(users);
+        res.json({ success: true, message: 'Password changed successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
 
+app.post('/forgot-password', async (req, res) => {
+    try {
+        const { username } = req.body;
+        const users = await readData();
+        const userIndex = users.findIndex(u => u.username === username);
+
+        if (userIndex === -1) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid username'
+            });
+        }
+
+        const tempPassword = generateRandomPassword();
+        users[userIndex].password = tempPassword;
+        await saveData(users);
+
+        res.json({
+            success: true,
+            message: 'Temporary password generated',
+            tempPassword
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
+// Hàm tạo mật khẩu tạm
+function generateRandomPassword() {
+    const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    return Array.from({ length: 8 }, () =>
+        charset.charAt(Math.floor(Math.random() * charset.length))
+    ).join('');
+}
 
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
