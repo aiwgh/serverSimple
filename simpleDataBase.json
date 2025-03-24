@@ -1,1 +1,30 @@
-{"users":[{"id":1,"userName":"admin","password":"admin","name":"Admin"},{"userName":"test","password":"bvGALZCF"}]}
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "admin",
+            "password": "admin",
+            "name": "Admin"
+        },
+        {
+            "username": "test",
+            "password": "bvGALZCF"
+        }
+    ],
+    "doctor": [
+        {
+            "id": "1",
+            "name": "Hoàng Phi Hồng",
+            "telephone": "1234567890",
+            "type": "Bác sĩ",
+            "job": "Chuyên khoa nội"
+        },
+        {
+            "id": "2",
+            "name": "Nguyễn Văn A",
+            "telephone": "0987654321",
+            "type": "Bác sĩ",
+            "job": "Chuyên khoa ngoại"
+        }
+    ]
+}

@@ -13,9 +13,9 @@ app.get('/', (req, res) => {
 );
 
 app.post('/login', (req, res) => {
-    var userName = req.body.userName;
+    var username = req.body.username;
     var password = req.body.password;
-    var user = readData().users.find(u => u.userName === userName && u.password === password);
+    var user = readData().users.find(u => u.username === username && u.password === password);
     if (!user) {
         res.status(400).send('Invalid username or password');
         return;
@@ -26,33 +26,33 @@ app.post('/login', (req, res) => {
 );
 
 app.post('/register', (req, res) => {
-    // var userName = req.body.userName;
+    // var username = req.body.username;
     // var password = req.body.password;
-    // if (userName === 'admin') {
-    //     res.status(400).send('Username already exists');
+    // if (username === 'admin') {
+    //     res.status(400).send('username already exists');
     //     return;
     // }
 
     // res.send('Registration successful');
     var data = readData();
-    var userName = req.body.userName;
+    var username = req.body.username;
     var password = req.body.password;
-    var user = getUser(userName);
+    var user = getUser(username);
     if (user) {
-        res.status(400).send('Username already exists');
+        res.status(400).send('username already exists');
         return;
     }
-    data.users.push({ userName: userName, password: password });
+    data.users.push({ username: username, password: password });
     fs.writeFileSync(DataBasePatch, JSON.stringify(data));
     res.send('Registration successful');
 }
 );
 
 app.post('/change-password', (req, res) => {
-    var userName = req.body.userName;
+    var username = req.body.username;
     var password = req.body.password;
     var newPassword = req.body.newPassword;
-    if (!changePassword(userName, password, newPassword)) {
+    if (!changePassword(username, password, newPassword)) {
         res.status(400).send('Invalid username or password');
         return;
     }
@@ -61,13 +61,13 @@ app.post('/change-password', (req, res) => {
 );
 
 app.post('/forgot-password', (req, res) => {
-    var userName = req.body.userName;
-    var user = getUser(userName);
+    var username = req.body.username;
+    var user = getUser(username);
     if (!user) {
         res.status(400).send('Invalid username');
         return;
     }
-    res.send(forgotPassword(userName));
+    res.send(forgotPassword(username));
 }
 );
 
@@ -84,9 +84,9 @@ function generateRandomPassword() {
 }
 
 
-function changePassword(userName, password, newPassword) {
+function changePassword(username, password, newPassword) {
     var data = readData();
-    var user = data.users.find(u => u.userName === userName && u.password === password);
+    var user = data.users.find(u => u.username === username && u.password === password);
     if (!user) {
         return false;
     }
@@ -95,9 +95,9 @@ function changePassword(userName, password, newPassword) {
     return true;
 }
 
-function forgotPassword(userName) {
+function forgotPassword(username) {
     var data = readData();
-    var user = data.users.find(u => u.userName === userName);
+    var user = data.users.find(u => u.username === username);
     if (!user) {
         return null;
     }
@@ -119,9 +119,9 @@ function readData() {
     return JSON.parse(data);
 }
 
-function getUser(userName) {
+function getUser(username) {
     var data = readData();
-    return data.users.find(u => u.userName === userName);
+    return data.users.find(u => u.username === username);
 }
 
 
