@@ -54,10 +54,10 @@ app.post('/change-password', (req, res) => {
     var password = req.body.password;
     var newPassword = req.body.newPassword;
     if (!changePassword(username, password, newPassword)) {
-        res.send('Invalid username or password');
+        res.send({ success: false, message: 'Invalid username or password' });
         return;
     }
-    res.send('Password changed successfully');
+    res.send({ success: true, message: 'Password changed successfully' });
 }
 );
 
