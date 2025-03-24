@@ -17,7 +17,7 @@ app.post('/login', (req, res) => {
     var password = req.body.password;
     var user = readData().users.find(u => u.username === username && u.password === password);
     if (!user) {
-        res.status(400).send({ success: false, message: 'Invalid username or password' });
+        res.send({ success: false, message: 'Invalid username or password' });
         return;
     }
     res.send({ success: true, message: 'Login successful' });
@@ -29,7 +29,7 @@ app.post('/register', (req, res) => {
     // var username = req.body.username;
     // var password = req.body.password;
     // if (username === 'admin') {
-    //     res.status(400).send('username already exists');
+    //     res.send('username already exists');
     //     return;
     // }
 
@@ -40,7 +40,7 @@ app.post('/register', (req, res) => {
     var user = getUser(username);
     if (user) {
         // res code 400  send json message username already exists
-        res.status(400).send({ success: false, message: 'username already exists' });
+        res.send({ success: false, message: 'username already exists' });
         return;
     }
     data.users.push({ username: username, password: password });
@@ -54,7 +54,7 @@ app.post('/change-password', (req, res) => {
     var password = req.body.password;
     var newPassword = req.body.newPassword;
     if (!changePassword(username, password, newPassword)) {
-        res.status(400).send('Invalid username or password');
+        res.send('Invalid username or password');
         return;
     }
     res.send('Password changed successfully');
@@ -65,7 +65,7 @@ app.post('/forgot-password', (req, res) => {
     var username = req.body.username;
     var user = getUser(username);
     if (!user) {
-        res.status(400).send({ success: false, message: 'Invalid username' });
+        res.send({ success: false, message: 'Invalid username' });
         return;
     }
     res.send(forgotPassword(username));
