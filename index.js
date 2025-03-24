@@ -8,7 +8,7 @@ app = express();
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send({ success: true, message: 'Hello World' });
 }
 );
 
@@ -17,10 +17,10 @@ app.post('/login', (req, res) => {
     var password = req.body.password;
     var user = readData().users.find(u => u.username === username && u.password === password);
     if (!user) {
-        res.status(400).send('Invalid username or password');
+        res.status(400).send({ success: false, message: 'Invalid username or password' });
         return;
     }
-    res.send('Login successful');
+    res.send({ success: true, message: 'Login successful' });
 
 }
 );
@@ -39,7 +39,8 @@ app.post('/register', (req, res) => {
     var password = req.body.password;
     var user = getUser(username);
     if (user) {
-        res.status(400).send('username already exists');
+        // res code 400  send json message username already exists
+        res.status(400).send({ success: false, message: 'username already exists' });
         return;
     }
     data.users.push({ username: username, password: password });
@@ -64,7 +65,7 @@ app.post('/forgot-password', (req, res) => {
     var username = req.body.username;
     var user = getUser(username);
     if (!user) {
-        res.status(400).send('Invalid username');
+        res.status(400).send({ success: false, message: 'Invalid username' });
         return;
     }
     res.send(forgotPassword(username));
