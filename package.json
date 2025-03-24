@@ -2,7 +2,9 @@
   "dependencies": {
     "@vercel/edge-config": "^1.4.0",
     "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "groq-sdk": "^0.17.0",
     "node-fetch": "^2.7.0",
     "nodemon": "^3.1.9"
   },

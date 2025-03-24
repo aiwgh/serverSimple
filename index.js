@@ -2,6 +2,8 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const { createClient, get } = require('@vercel/edge-config');
 const fetch = require('node-fetch');
+const { Groq } = require('groq-sdk');
+require('dotenv').config({ path: '.env.local' })
 
 const app = express();
 app.use(bodyParser.json());
@@ -10,6 +12,7 @@ app.use(bodyParser.json());
 const edgeConfig = createClient(process.env.EDGE_CONFIG);
 const VERCEL_ACCESS_TOKEN = process.env.VERCEL_ACCESS_TOKEN;
 const API_URL = `https://api.vercel.com/v1/edge-config/${process.env.EDGE_CONFIG_ID}}/items`;
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 // Hàm đọc dữ liệu
 const readData = async () => {
@@ -155,6 +158,27 @@ app.post('/forgot-password', async (req, res) => {
         res.status(500).json({ success: false, message: 'Server error' });
     }
 });
+
+
+
+// endpoint Ai chatbot
+app.post('/chatbot', async (req, res) => {
+    const { message } = req.body;
+    try {
+        const response = await groq.chat.completions.create({
+            model: "llama-3.3-70b-versatile",
+            messages: [
+                { role: "user", content: message }
+            ]
+        });
+
+        res.status(200).json({ message: response.choices[0].message.content });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+);
+
 
 // Hàm tạo mật khẩu tạm
 function generateRandomPassword() {

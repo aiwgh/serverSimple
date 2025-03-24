@@ -26,5 +26,375 @@
             "type": "Bác sĩ",
             "job": "Chuyên khoa ngoại"
         }
+    ],
+    "diseases": [
+        {
+            "name": "Thoái hóa khớp",
+            "description": "Thoái hóa khớp là tình trạng tổn thương sụn khớp và xương dưới sụn, kèm theo phản ứng viêm, giảm thiểu lượng dịch khớp. Bệnh không gây tử vong nhưng có thể làm giảm chất lượng cuộc sống và gây tàn phế nếu không điều trị kịp thời. Đối tượng dễ mắc bệnh gồm người lớn tuổi, người bị chấn thương khớp, béo phì, lao động nặng."
+        },
+        {
+            "name": "Thoát vị đĩa đệm",
+            "description": "Thoát vị đĩa đệm xảy ra khi nhân nhầy đĩa đệm thoát khỏi vị trí bình thường, chèn ép dây thần kinh gây đau cột sống. Bệnh có thể dẫn đến mất khả năng vận động nếu không điều trị kịp thời. Đối tượng dễ mắc gồm người lao động nặng, người có thói quen sinh hoạt không đúng tư thế, người mắc bệnh xương khớp."
+        },
+        {
+            "name": "Đau dây thần kinh tọa",
+            "description": "Đau thần kinh tọa là tình trạng đau dọc theo dây thần kinh tọa từ cột sống thắt lưng xuống chân, thường do chèn ép dây thần kinh. Nếu không điều trị, bệnh có thể gây yếu cơ, mất cảm giác ở chân, ảnh hưởng đến sinh hoạt. Đối tượng dễ mắc gồm người lao động nặng, người béo phì, người lớn tuổi."
+        },
+        {
+            "name": "Gai cột sống",
+            "description": "Gai cột sống là tình trạng mọc gai xương trên thân đốt sống, gây đau và hạn chế vận động. Bệnh có thể làm tổn thương dây thần kinh, gây đau mãn tính và ảnh hưởng nghiêm trọng đến chất lượng cuộc sống. Đối tượng dễ mắc gồm người lớn tuổi, người có tiền sử chấn thương cột sống, người lao động nặng."
+        },
+        {
+            "name": "Tai biến mạch máu não",
+            "description": "Tai biến mạch máu não (đột quỵ) xảy ra khi não không được cung cấp đủ oxy do dòng máu bị gián đoạn, có thể dẫn đến tử vong hoặc di chứng nặng. Đây là bệnh nguy hiểm, cần cấp cứu kịp thời. Đối tượng có nguy cơ cao gồm người bị tiểu đường, cao huyết áp, béo phì, người có tiền sử gia đình mắc bệnh."
+        },
+        {
+            "name": "Đau cổ vai gáy",
+            "description": "Đau cổ vai gáy là tình trạng co cứng cơ vùng cổ và vai, gây đau và hạn chế vận động. Nếu không điều trị, bệnh có thể gây rối loạn cảm giác, teo cơ, ảnh hưởng đến cột sống. Đối tượng dễ mắc gồm nhân viên văn phòng, tài xế, người lao động nặng, người mắc bệnh cột sống."
+        },
+        {
+            "name": "Liệt dây thần kinh số VII",
+            "description": "Liệt dây thần kinh số VII là mất vận động một phần hoặc toàn bộ cơ mặt do tổn thương dây thần kinh mặt. Bệnh có thể gây biến chứng nghiêm trọng như viêm giác mạc, co thắt nửa mặt, ảnh hưởng thẩm mỹ và chức năng miệng. Đối tượng dễ mắc gồm người có hệ miễn dịch yếu, phụ nữ mang thai, người bị chấn thương đầu."
+        },
+        {
+            "name": "Đau dây thần kinh liên sườn",
+            "description": "Đau dây thần kinh liên sườn là tình trạng đau dọc theo các dây thần kinh liên sườn, có thể do chấn thương hoặc bệnh lý. Nếu không điều trị, bệnh có thể ảnh hưởng đến hô hấp và gây khó khăn trong sinh hoạt. Đối tượng dễ mắc gồm người bị chấn thương ngực, sau phẫu thuật lồng ngực, mắc bệnh zona thần kinh."
+        },
+        {
+            "name": "Viêm đa dây thần kinh",
+            "description": "Viêm đa dây thần kinh là tình trạng viêm ảnh hưởng đến nhiều dây thần kinh ngoại biên, gây đau và yếu cơ. Bệnh có thể dẫn đến tàn phế nếu không điều trị kịp thời. Đối tượng dễ mắc gồm người mắc bệnh tiểu đường, bệnh tự miễn, người tiếp xúc với hóa chất độc hại."
+        },
+        {
+            "name": "Zona thần kinh",
+            "description": "Zona thần kinh là bệnh do virus Varicella-Zoster gây ra, xuất hiện các mụn nước dọc theo dây thần kinh và gây đau kéo dài. Bệnh có thể để lại biến chứng đau dây thần kinh sau zona kéo dài nhiều năm. Đối tượng dễ mắc gồm người lớn tuổi, người có hệ miễn dịch suy giảm, người từng mắc thủy đậu."
+        }
+    ],
+    "quizzes": [
+        {
+            "question": "Nguyên nhân chính gây đau dây thần kinh tọa là gì?",
+            "answer1": "Thoát vị đĩa đệm",
+            "answer2": "Gai cột sống",
+            "answer3": "Loãng xương",
+            "answer4": "Viêm khớp dạng thấp",
+            "correctanswer": "Thoát vị đĩa đệm"
+        },
+        {
+            "question": "Bệnh nào có triệu chứng mụn nước theo đường dây thần kinh?",
+            "answer1": "Viêm da tiếp xúc",
+            "answer2": "Dị ứng thuốc",
+            "answer3": "Zona thần kinh",
+            "answer4": "Bệnh chàm",
+            "correctanswer": "Zona thần kinh"
+        },
+        {
+            "question": "Bệnh thoái hóa khớp thường ảnh hưởng đến khớp nào nhất?",
+            "answer1": "Khớp vai",
+            "answer2": "Khớp háng",
+            "answer3": "Khớp gối",
+            "answer4": "Khớp cổ tay",
+            "correctanswer": "Khớp gối"
+        },
+        {
+            "question": "Đối tượng nào dễ mắc bệnh viêm đa dây thần kinh?",
+            "answer1": "Người mắc bệnh tiểu đường",
+            "answer2": "Người thiếu vitamin B1",
+            "answer3": "Người tiếp xúc với hóa chất độc hại",
+            "answer4": "Tất cả các đáp án trên",
+            "correctanswer": "Tất cả các đáp án trên"
+        },
+        {
+            "question": "Bệnh lý nào có thể gây liệt dây thần kinh số VII?",
+            "answer1": "Tai biến mạch máu não",
+            "answer2": "Viêm tai giữa",
+            "answer3": "Chấn thương sọ não",
+            "answer4": "Tất cả các đáp án trên",
+            "correctanswer": "Tất cả các đáp án trên"
+        },
+        {
+            "question": "Loại virus nào gây bệnh Zona thần kinh?",
+            "answer1": "Herpes simplex",
+            "answer2": "Varicella-Zoster",
+            "answer3": "Cytomegalovirus",
+            "answer4": "Epstein-Barr",
+            "correctanswer": "Varicella-Zoster"
+        },
+        {
+            "question": "Gai cột sống thường xuất hiện ở đâu?",
+            "answer1": "Cột sống cổ",
+            "answer2": "Cột sống thắt lưng",
+            "answer3": "Cột sống ngực",
+            "answer4": "Cả ba vị trí trên",
+            "correctanswer": "Cả ba vị trí trên"
+        },
+        {
+            "question": "Dấu hiệu nào thường gặp của thoát vị đĩa đệm?",
+            "answer1": "Đau lan xuống chân",
+            "answer2": "Sưng đỏ tại vị trí cột sống",
+            "answer3": "Chóng mặt và buồn nôn",
+            "answer4": "Sốt cao kéo dài",
+            "correctanswer": "Đau lan xuống chân"
+        },
+        {
+            "question": "Đau dây thần kinh tọa có thể gây biến chứng gì nếu không điều trị?",
+            "answer1": "Tê bì chân",
+            "answer2": "Yếu cơ",
+            "answer3": "Mất khả năng vận động",
+            "answer4": "Tất cả các đáp án trên",
+            "correctanswer": "Tất cả các đáp án trên"
+        },
+        {
+            "question": "Bệnh nào có thể gây hẹp khe khớp trên X-quang?",
+            "answer1": "Thoái hóa khớp",
+            "answer2": "Lao khớp",
+            "answer3": "Viêm khớp dạng thấp",
+            "answer4": "Tất cả các đáp án trên",
+            "correctanswer": "Tất cả các đáp án trên"
+        },
+        {
+            "question": "Bệnh lý nào có thể gây đau cổ vai gáy?",
+            "answer1": "Thoái hóa đốt sống cổ",
+            "answer2": "Gai cột sống",
+            "answer3": "Thoát vị đĩa đệm cổ",
+            "answer4": "Tất cả các đáp án trên",
+            "correctanswer": "Tất cả các đáp án trên"
+        },
+        {
+            "question": "Tai biến mạch máu não có thể gây ra triệu chứng nào?",
+            "answer1": "Liệt nửa người",
+            "answer2": "Mất khả năng nói",
+            "answer3": "Rối loạn nhận thức",
+            "answer4": "Tất cả các đáp án trên",
+            "correctanswer": "Tất cả các đáp án trên"
+        },
+        {
+            "question": "Bệnh nhân tiểu đường dễ mắc biến chứng nào liên quan đến dây thần kinh?",
+            "answer1": "Viêm đa dây thần kinh",
+            "answer2": "Đau dây thần kinh tọa",
+            "answer3": "Thoái hóa khớp",
+            "answer4": "Thoát vị đĩa đệm",
+            "correctanswer": "Viêm đa dây thần kinh"
+        },
+        {
+            "question": "Zona thần kinh có thể gây ra biến chứng gì?",
+            "answer1": "Đau dây thần kinh sau zona",
+            "answer2": "Mù mắt nếu ảnh hưởng đến vùng mắt",
+            "answer3": "Suy giảm miễn dịch",
+            "answer4": "Cả hai đáp án đầu đều đúng",
+            "correctanswer": "Cả hai đáp án đầu đều đúng"
+        },
+        {
+            "question": "Dấu hiệu điển hình của liệt dây thần kinh số VII là gì?",
+            "answer1": "Méo miệng",
+            "answer2": "Không nhắm được mắt bên tổn thương",
+            "answer3": "Mất khả năng cử động một bên mặt",
+            "answer4": "Tất cả các đáp án trên",
+            "correctanswer": "Tất cả các đáp án trên"
+        }
+    ],
+    "did_you_know": [
+        {
+            "title": "Cây Bạc Hà và tác dụng chữa bệnh",
+            "description": "Bạc hà không chỉ là một loại gia vị phổ biến trong ẩm thực mà còn có nhiều tác dụng chữa bệnh tuyệt vời. Tinh dầu bạc hà giúp làm dịu các triệu chứng cảm lạnh, giảm đau họng, thông mũi và hỗ trợ hô hấp. Ngoài ra, bạc hà còn được sử dụng để giảm co thắt dạ dày, kích thích tiêu hóa và chống buồn nôn. Nhiều nghiên cứu cũng cho thấy bạc hà có thể giúp giảm căng thẳng, thư giãn tinh thần và cải thiện chất lượng giấc ngủ. Nó cũng có tính kháng khuẩn tự nhiên, giúp ngăn ngừa nhiễm trùng và cải thiện sức khỏe răng miệng.",
+            "image": [
+                "https://example.com/mint1.jpg",
+                "https://example.com/mint2.jpg"
+            ]
+        },
+        {
+            "title": "Tác dụng của Cây Nghệ",
+            "description": "Nghệ là một loại thảo dược quý giá với thành phần hoạt chất chính là curcumin, có đặc tính chống viêm và chống oxy hóa mạnh mẽ. Nghệ thường được sử dụng để điều trị các vấn đề về tiêu hóa như viêm loét dạ dày, đau bụng và khó tiêu. Ngoài ra, curcumin còn giúp bảo vệ gan, giảm cholesterol và hỗ trợ điều trị bệnh tim mạch. Đặc biệt, nghệ có thể giúp làm sáng da, giảm mụn và hỗ trợ làm lành vết thương nhanh chóng. Nhiều nghiên cứu cũng chỉ ra rằng nghệ có thể giúp phòng chống ung thư nhờ khả năng ức chế sự phát triển của tế bào ung thư.",
+            "image": [
+                "https://example.com/turmeric1.jpg",
+                "https://example.com/turmeric2.jpg"
+            ]
+        },
+        {
+            "title": "Công dụng của Cây Lô Hội",
+            "description": "Lô hội (nha đam) được biết đến như một phương thuốc tự nhiên với nhiều công dụng hữu ích. Gel lô hội giúp làm dịu làn da, giảm viêm và hỗ trợ điều trị bỏng, cháy nắng cũng như vết thương nhỏ. Nó còn có khả năng dưỡng ẩm, làm mềm da và cải thiện độ đàn hồi của da. Trong y học cổ truyền, lô hội còn được dùng để điều trị viêm loét dạ dày, giảm táo bón và thanh lọc cơ thể. Ngoài ra, nhờ đặc tính kháng khuẩn và chống viêm, lô hội còn hỗ trợ điều trị mụn trứng cá, giúp da khỏe mạnh hơn.",
+            "image": [
+                "https://example.com/aloe1.jpg",
+                "https://example.com/aloe2.jpg"
+            ]
+        },
+        {
+            "title": "Cây Cúc La Mã và lợi ích cho giấc ngủ",
+            "description": "Cúc La Mã là một loại thảo dược được sử dụng rộng rãi trong y học cổ truyền để giúp giảm căng thẳng và cải thiện giấc ngủ. Trà cúc La Mã có tác dụng an thần nhẹ, giúp thư giãn tinh thần, giảm lo âu và cải thiện chất lượng giấc ngủ. Ngoài ra, cúc La Mã còn giúp làm dịu hệ tiêu hóa, giảm đầy hơi, hỗ trợ điều trị viêm dạ dày và hội chứng ruột kích thích. Bên cạnh đó, cúc La Mã có đặc tính kháng viêm, giúp làm dịu các triệu chứng dị ứng da, giảm mẩn đỏ và hỗ trợ điều trị viêm da cơ địa.",
+            "image": [
+                "https://example.com/chamomile1.jpg",
+                "https://example.com/chamomile2.jpg"
+            ]
+        },
+        {
+            "title": "Công dụng của Gừng trong chữa bệnh",
+            "description": "Gừng là một loại gia vị quen thuộc trong ẩm thực nhưng cũng có nhiều lợi ích sức khỏe. Gừng giúp giảm viêm, chống buồn nôn, hỗ trợ tiêu hóa và giảm đau do viêm khớp. Ngoài ra, gừng còn giúp tăng cường miễn dịch, làm ấm cơ thể và hỗ trợ điều trị cảm lạnh. Trà gừng là một phương thuốc tuyệt vời để giảm đau họng và chống say tàu xe.",
+            "image": [
+                "https://example.com/ginger1.jpg",
+                "https://example.com/ginger2.jpg"
+            ]
+        },
+        {
+            "title": "Lợi ích của Mật Ong đối với sức khỏe",
+            "description": "Mật ong không chỉ là một chất tạo ngọt tự nhiên mà còn có nhiều công dụng chữa bệnh. Nó có đặc tính kháng khuẩn, giúp làm lành vết thương nhanh chóng, giảm đau họng, hỗ trợ tiêu hóa và tăng cường năng lượng. Ngoài ra, mật ong còn giúp cải thiện giấc ngủ, dưỡng ẩm cho da và chống oxy hóa mạnh mẽ.",
+            "image": [
+                "https://example.com/honey1.jpg",
+                "https://example.com/honey2.jpg"
+            ]
+        },
+        {
+            "title": "Cây Tỏi và công dụng chữa bệnh",
+            "description": "Tỏi là một loại thực phẩm có đặc tính kháng khuẩn và kháng virus mạnh mẽ. Nó giúp tăng cường hệ miễn dịch, giảm cholesterol, kiểm soát huyết áp và hỗ trợ phòng ngừa bệnh tim mạch. Ngoài ra, tỏi còn giúp làm giảm nguy cơ ung thư và hỗ trợ điều trị cảm cúm.",
+            "image": [
+                "https://example.com/garlic1.jpg",
+                "https://example.com/garlic2.jpg"
+            ]
+        },
+        {
+            "title": "Cây Trà Xanh và lợi ích sức khỏe",
+            "description": "Trà xanh là một trong những loại đồ uống tốt nhất cho sức khỏe. Nó giàu chất chống oxy hóa, giúp giảm cân, tăng cường trí nhớ, giảm nguy cơ bệnh tim mạch và hỗ trợ phòng ngừa ung thư. Ngoài ra, trà xanh còn giúp làm đẹp da và giảm căng thẳng hiệu quả.",
+            "image": [
+                "https://example.com/greentea1.jpg",
+                "https://example.com/greentea2.jpg"
+            ]
+        },
+        {
+            "title": "Lợi ích của Hạt Chia đối với sức khỏe",
+            "description": "Hạt chia là một loại siêu thực phẩm giàu omega-3, chất xơ và protein. Nó giúp kiểm soát đường huyết, hỗ trợ tiêu hóa, giảm viêm và cung cấp năng lượng dồi dào. Ngoài ra, hạt chia còn giúp giảm cân, tốt cho tim mạch và cải thiện sức khỏe não bộ.",
+            "image": [
+                "https://example.com/chia1.jpg",
+                "https://example.com/chia2.jpg"
+            ]
+        }
+    ],
+    "depression_test": [
+        {
+            "question": "Bạn cảm thấy buồn bã hoặc chán nản trong thời gian gần đây không?",
+            "answer1": "Không bao giờ",
+            "answer2": "Đôi khi",
+            "answer3": "Thường xuyên",
+            "answer4": "Hầu như mỗi ngày",
+            "answer5": "Mọi lúc",
+            "pointanswer1": 0,
+            "pointanswer2": 1,
+            "pointanswer3": 2,
+            "pointanswer4": 3,
+            "pointanswer5": 4
+        },
+        {
+            "question": "Bạn có còn hứng thú với các hoạt động mà trước đây bạn yêu thích không?",
+            "answer1": "Hoàn toàn có",
+            "answer2": "Có, nhưng ít hơn trước",
+            "answer3": "Không chắc",
+            "answer4": "Rất ít",
+            "answer5": "Không còn hứng thú nữa",
+            "pointanswer1": 0,
+            "pointanswer2": 1,
+            "pointanswer3": 2,
+            "pointanswer4": 3,
+            "pointanswer5": 4
+        },
+        {
+            "question": "Bạn có cảm thấy mệt mỏi hoặc thiếu năng lượng không?",
+            "answer1": "Không bao giờ",
+            "answer2": "Thỉnh thoảng",
+            "answer3": "Thường xuyên",
+            "answer4": "Gần như mỗi ngày",
+            "answer5": "Mọi lúc",
+            "pointanswer1": 0,
+            "pointanswer2": 1,
+            "pointanswer3": 2,
+            "pointanswer4": 3,
+            "pointanswer5": 4
+        },
+        {
+            "question": "Bạn có gặp vấn đề về giấc ngủ (khó ngủ, ngủ quá nhiều)?",
+            "answer1": "Không bao giờ",
+            "answer2": "Thỉnh thoảng",
+            "answer3": "Thường xuyên",
+            "answer4": "Gần như mỗi ngày",
+            "answer5": "Mọi lúc",
+            "pointanswer1": 0,
+            "pointanswer2": 1,
+            "pointanswer3": 2,
+            "pointanswer4": 3,
+            "pointanswer5": 4
+        },
+        {
+            "question": "Bạn có cảm thấy mất tập trung hoặc gặp khó khăn khi ra quyết định không?",
+            "answer1": "Không bao giờ",
+            "answer2": "Đôi khi",
+            "answer3": "Thường xuyên",
+            "answer4": "Gần như mỗi ngày",
+            "answer5": "Mọi lúc",
+            "pointanswer1": 0,
+            "pointanswer2": 1,
+            "pointanswer3": 2,
+            "pointanswer4": 3,
+            "pointanswer5": 4
+        },
+        {
+            "question": "Bạn có cảm thấy mình vô dụng hoặc tội lỗi không?",
+            "answer1": "Không bao giờ",
+            "answer2": "Thỉnh thoảng",
+            "answer3": "Thường xuyên",
+            "answer4": "Gần như mỗi ngày",
+            "answer5": "Mọi lúc",
+            "pointanswer1": 0,
+            "pointanswer2": 1,
+            "pointanswer3": 2,
+            "pointanswer4": 3,
+            "pointanswer5": 4
+        },
+        {
+            "question": "Bạn có suy nghĩ tiêu cực về bản thân hoặc cuộc sống không?",
+            "answer1": "Không bao giờ",
+            "answer2": "Thỉnh thoảng",
+            "answer3": "Thường xuyên",
+            "answer4": "Gần như mỗi ngày",
+            "answer5": "Mọi lúc",
+            "pointanswer1": 0,
+            "pointanswer2": 1,
+            "pointanswer3": 2,
+            "pointanswer4": 3,
+            "pointanswer5": 4
+        },
+        {
+            "question": "Bạn có cảm thấy lo lắng hoặc căng thẳng quá mức không?",
+            "answer1": "Không bao giờ",
+            "answer2": "Thỉnh thoảng",
+            "answer3": "Thường xuyên",
+            "answer4": "Gần như mỗi ngày",
+            "answer5": "Mọi lúc",
+            "pointanswer1": 0,
+            "pointanswer2": 1,
+            "pointanswer3": 2,
+            "pointanswer4": 3,
+            "pointanswer5": 4
+        },
+        {
+            "question": "Bạn có cảm giác mất hy vọng về tương lai không?",
+            "answer1": "Không bao giờ",
+            "answer2": "Thỉnh thoảng",
+            "answer3": "Thường xuyên",
+            "answer4": "Gần như mỗi ngày",
+            "answer5": "Mọi lúc",
+            "pointanswer1": 0,
+            "pointanswer2": 1,
+            "pointanswer3": 2,
+            "pointanswer4": 3,
+            "pointanswer5": 4
+        },
+        {
+            "question": "Bạn có từng nghĩ đến việc làm tổn thương bản thân hoặc tự tử không?",
+            "answer1": "Không bao giờ",
+            "answer2": "Thỉnh thoảng",
+            "answer3": "Thường xuyên",
+            "answer4": "Gần như mỗi ngày",
+            "answer5": "Mọi lúc",
+            "pointanswer1": 0,
+            "pointanswer2": 1,
+            "pointanswer3": 2,
+            "pointanswer4": 3,
+            "pointanswer5": 4
+        }
     ]
 }
