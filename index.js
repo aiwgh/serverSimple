@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 app.post('/login', (req, res) => {
     var username = req.body.username;
     var password = req.body.password;
-    var user = readData().users.find(u => u.username === username && u.password === password);
+    var user = readData.users.find(u => u.username === username && u.password === password);
     if (!user) {
         res.send({ success: false, message: 'Invalid username or password' });
         return;
@@ -35,7 +35,7 @@ app.post('/register', (req, res) => {
     // }
 
     // res.send('Registration successful');
-    var data = readData();
+    var data = readData;
     var username = req.body.username;
     var password = req.body.password;
     var user = getUser(username);
@@ -87,7 +87,7 @@ function generateRandomPassword() {
 
 
 function changePassword(username, password, newPassword) {
-    var data = readData();
+    var data = readData;
     var user = data.users.find(u => u.username === username && u.password === password);
     if (!user) {
         return false;
@@ -98,7 +98,7 @@ function changePassword(username, password, newPassword) {
 }
 
 function forgotPassword(username) {
-    var data = readData();
+    var data = readData;
     var user = data.users.find(u => u.username === username);
     if (!user) {
         return null;
@@ -123,7 +123,7 @@ const readData = async () => {
 
 // Hàm kiểm tra user tồn tại
 const getUser = async (username) => {
-    const users = await readData();
+    const users = await readData;
     return users.users.find(user => user.username === username);
 };
 
