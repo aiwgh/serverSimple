@@ -36,7 +36,8 @@ const saveData = async (users) => {
         })
     });
 
-    if (!response.ok) throw new Error('Failed to update data');
+    if (!response.ok) return false;
+    return true;
 };
 
 
@@ -81,7 +82,12 @@ app.post('/register', async (req, res) => {
 
         // Thêm user mới
         users.push({ username, password });
-        await saveData(users);
+        if (await saveData(users)) {
+            return res.status(500).json({
+                success: false,
+                message: 'Failed to save data'
+            });
+        }
 
         res.json({
             success: true,
