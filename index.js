@@ -3,6 +3,7 @@ const express = require('express');
 const fs = require('fs');
 const { get } = require('http');
 const path = require('path');
+const { getEdgeConfig, setEdgeConfig } = require('@vercel/edge-config');
 const DataBasePatch = path.join(process.cwd(), 'simpleDataBase.json');
 app = express();
 app.use(bodyParser.json());
@@ -115,15 +116,16 @@ function forgotPassword(username) {
 
 
 
-function readData() {
-    var data = fs.readFileSync(DataBasePatch);
-    return JSON.parse(data);
-}
+const readData = async () => {
+    const data = await getEdgeConfig('server-simple-store');
+    return data || [];
+};
 
-function getUser(username) {
-    var data = readData();
-    return data.users.find(u => u.username === username);
-}
+// Hàm kiểm tra user tồn tại
+const getUser = async (username) => {
+    const users = await readData();
+    return users.users.find(user => user.username === username);
+};
 
 
 
