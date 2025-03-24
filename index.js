@@ -58,8 +58,9 @@ app.post('/login', async (req, res) => {
                 message: 'Invalid username or password'
             });
         }
-
-        res.json({ success: true, message: 'Login successful' });
+        else {
+            res.json({ success: true, message: 'Login successful' });
+        }
     } catch (err) {
         console.error(err);
         res.status(500).json({ success: false, message: 'Server error' });
@@ -88,11 +89,12 @@ app.post('/register', async (req, res) => {
                 message: 'Failed to save data'
             });
         }
-
-        res.json({
-            success: true,
-            message: 'Registration successful'
-        });
+        else {
+            res.json({
+                success: true,
+                message: 'Registration successful'
+            });
+        }
     } catch (err) {
         console.error('Error:', err);
         res.status(500).json({
