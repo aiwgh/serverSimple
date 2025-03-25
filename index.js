@@ -36,7 +36,7 @@ const saveData = async (users) => {
                 {
                     operation: 'upsert',
                     key: 'users',
-                    value: users
+                    value: JSON.parse(users)
                 }
             ]
         })
