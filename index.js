@@ -20,11 +20,13 @@ const readData = async () => {
     console.log(users);
     var u = [];
     u.push(users);
+    u.replace(/'/g, '"').replace(/(\w+):/g, '"$1":');
     return u || [];
 };
 
 // Hàm cập nhật dữ liệu
 const saveData = async (users) => {
+    u = users.replace(/'/g, '"').replace(/(\w+):/g, '"$1":');
     const response = await fetch(API_URL, {
         method: 'PATCH',
         headers: {
@@ -36,7 +38,7 @@ const saveData = async (users) => {
                 {
                     operation: 'upsert',
                     key: 'users',
-                    value: JSON.parse(users)
+                    value: JSON.parse(u)
                 }
             ]
         })
