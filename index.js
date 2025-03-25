@@ -20,13 +20,23 @@ const readData = async () => {
     console.log(users);
     var u = [];
     u.push(users);
-    u.replace(/'/g, '"').replace(/(\w+):/g, '"$1":');
-    return u || [];
+    const jsonString = u
+        .replace(/'/g, '"')  // Chuyển dấu nháy đơn thành nháy kép
+        .replace(/(\w+):/g, '"$1":'); // Thêm dấu nháy cho key
+
+    const jsonData = JSON.parse(jsonString);
+    return jsonData || [];
 };
 
 // Hàm cập nhật dữ liệu
 const saveData = async (users) => {
-    u = users.replace(/'/g, '"').replace(/(\w+):/g, '"$1":');
+    var u = [];
+    u.push(users);
+    const jsonString = u
+        .replace(/'/g, '"')  // Chuyển dấu nháy đơn thành nháy kép
+        .replace(/(\w+):/g, '"$1":'); // Thêm dấu nháy cho key
+
+    const jsonData = JSON.parse(jsonString);
     const response = await fetch(API_URL, {
         method: 'PATCH',
         headers: {
@@ -38,7 +48,7 @@ const saveData = async (users) => {
                 {
                     operation: 'upsert',
                     key: 'users',
-                    value: JSON.parse(u)
+                    value: jsonData
                 }
             ]
         })
