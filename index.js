@@ -9,10 +9,10 @@ const app = express();
 app.use(bodyParser.json());
 
 // Khởi tạo Edge Config client
-const edgeConfig = createClient(EDGE_CONFIG);
-const VERCEL_ACCESS_TOKEN = VERCEL_ACCESS_TOKEN;
-const API_URL = `https://api.vercel.com/v1/edge-config/${EDGE_CONFIG_ID}}/items`;
-const groq = new Groq({ apiKey: GROQ_API_KEY });
+const edgeConfig = createClient(process.env.EDGE_CONFIG);
+const VERCEL_ACCESS_TOKEN = process.env.VERCEL_ACCESS_TOKEN;
+const API_URL = `https://api.vercel.com/v1/edge-config/${process.env.EDGE_CONFIG_ID}/items`;
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 // Hàm đọc dữ liệu
 const readData = async () => {
