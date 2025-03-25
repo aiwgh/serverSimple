@@ -39,6 +39,8 @@ const saveData = async (users) => {
         })
     });
 
+    console.log(response);
+
     if (!response.ok) return false;
     return true;
 };
