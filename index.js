@@ -31,7 +31,7 @@ const saveData = async (users) => {
         body: JSON.stringify({
             items: [
                 {
-                    operation: 'create',
+                    operation: 'upsert',
                     key: 'users',
                     value: users
                 }
@@ -39,7 +39,7 @@ const saveData = async (users) => {
         })
     });
 
-    console.log(response);
+
 
     if (!response.ok) return false;
     return true;
@@ -79,7 +79,7 @@ app.post('/register', async (req, res) => {
         const users = await readData();
 
         // Kiểm tra user tồn tại
-        if (users.some(user => user.username === username)) {
+        if (users.find(user => user.username === username)) {
             return res.json({
                 success: false,
                 message: 'Username already exists'
