@@ -56,7 +56,7 @@ app.post('/login', async (req, res) => {
         const user = users.find(u => u.username === username && u.password === password);
 
         if (!user) {
-            return res.status(400).json({
+            return res.json({
                 success: false,
                 message: 'Invalid username or password'
             });
@@ -66,7 +66,7 @@ app.post('/login', async (req, res) => {
         }
     } catch (err) {
         console.error(err);
-        res.status(500).json({ success: false, message: 'Server error' });
+        res.json({ success: false, message: 'Server error' });
     }
 });
 
@@ -78,7 +78,7 @@ app.post('/register', async (req, res) => {
 
         // Kiểm tra user tồn tại
         if (users.some(user => user.username === username)) {
-            return res.status(400).json({
+            return res.json({
                 success: false,
                 message: 'Username already exists'
             });
@@ -87,7 +87,7 @@ app.post('/register', async (req, res) => {
         // Thêm user mới
         users.push({ username, password });
         if (await saveData(users)) {
-            return res.status(500).json({
+            return res.json({
                 success: false,
                 message: 'Failed to save data'
             });
@@ -100,7 +100,7 @@ app.post('/register', async (req, res) => {
         }
     } catch (err) {
         console.error('Error:', err);
-        res.status(500).json({
+        res.json({
             success: false,
             message: 'Internal server error'
         });
@@ -116,7 +116,7 @@ app.post('/change-password', async (req, res) => {
         );
 
         if (userIndex === -1) {
-            return res.status(400).json({
+            return res.json({
                 success: false,
                 message: 'Invalid credentials'
             });
@@ -127,7 +127,7 @@ app.post('/change-password', async (req, res) => {
         res.json({ success: true, message: 'Password changed successfully' });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ success: false, message: 'Server error' });
+        res.json({ success: false, message: 'Server error' });
     }
 });
 
@@ -138,7 +138,7 @@ app.post('/forgot-password', async (req, res) => {
         const userIndex = users.findIndex(u => u.username === username);
 
         if (userIndex === -1) {
-            return res.status(400).json({
+            return res.json({
                 success: false,
                 message: 'Invalid username'
             });
@@ -155,7 +155,7 @@ app.post('/forgot-password', async (req, res) => {
         });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ success: false, message: 'Server error' });
+        res.json({ success: false, message: 'Server error' });
     }
 });
 
@@ -174,7 +174,7 @@ app.post('/chatbot', async (req, res) => {
 
         res.status(200).json({ message: response.choices[0].message.content });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.json({ error: error.message });
     }
 }
 );
