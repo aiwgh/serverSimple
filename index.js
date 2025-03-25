@@ -31,7 +31,7 @@ const saveData = async (users) => {
         body: JSON.stringify({
             items: [
                 {
-                    operation: 'upsert',
+                    operation: 'create',
                     key: 'users',
                     value: users
                 }
