@@ -17,7 +17,8 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 // Hàm đọc dữ liệu
 const readData = async () => {
     const users = await edgeConfig.get('users');
-    log(users);
+    console.log(users);
+
     return users || [];
 };
 
